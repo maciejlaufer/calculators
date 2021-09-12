@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A Basic HTML5 Template</title>
+    <meta
+      name="description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta name="author" content="SitePoint" />
+
+    <meta property="og:title" content="A Basic HTML5 Template" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.sitepoint.com/a-basic-html5-template/"
+    />
+    <meta
+      property="og:description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta property="og:image" content="image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <form id="loan-calculator-form">
+      <p>Dane kredytu</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>Wartość inwestycji:</td>
+            <td><input name="investmentValue" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Wkład własny (początkowy):</td>
+            <td><input name="contribution" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Okres spłaty w latach:</td>
+            <td><input name="repaymentPeriod" type="number" /></td>
+            <td>lat</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Oblicz ratę" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Wyniki</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>Kwota do pożyczenia:</td>
+            <td><input id="loanAmount" readonly type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Liczba miesięcznych rat:</td>
+            <td><input id="numberOfRates" readonly type="number" /></td>
+            <td>rat</td>
+          </tr>
+          <tr>
+            <td>Twoja miesięczna rata:</td>
+            <td><input id="monthlyRate" readonly type="number" /></td>
+            <td>zł</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <hr />
+
+    <form id="loan-comparison-calculator-form">
+      <p>Porównanie kredytów</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>Wartość inwestycji:</td>
+            <td><input name="investmentValue1" type="number" /></td>
+            <td><input name="investmentValue2" type="number" /></td>
+            <td><input name="investmentValue3" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Wkład własny (początkowy):</td>
+            <td><input name="contribution1" type="number" /></td>
+            <td><input name="contribution2" type="number" /></td>
+            <td><input name="contribution3" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Okres spłaty w latach:</td>
+            <td><input name="repaymentPeriod1" type="number" /></td>
+            <td><input name="repaymentPeriod2" type="number" /></td>
+            <td><input name="repaymentPeriod3" type="number" /></td>
+            <td>lat</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="4">
+              <input type="submit" value="Oblicz ratę" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Wyniki</p>
+      <table>
+        <tbody>
+          <tr>
+            <td>Kwota do pożyczenia:</td>
+            <td><input id="loanAmount1" readonly type="number" /></td>
+            <td><input id="loanAmount2" readonly type="number" /></td>
+            <td><input id="loanAmount3" readonly type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Liczba miesięcznych rat:</td>
+            <td><input id="numberOfRates1" readonly type="number" /></td>
+            <td><input id="numberOfRates2" readonly type="number" /></td>
+            <td><input id="numberOfRates3" readonly type="number" /></td>
+            <td>rat</td>
+          </tr>
+          <tr>
+            <td>Twoja miesięczna rata:</td>
+            <td><input id="monthlyRate1" readonly type="number" /></td>
+            <td><input id="monthlyRate2" readonly type="number" /></td>
+            <td><input id="monthlyRate3" readonly type="number" /></td>
+            <td>zł</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <hr />
+
+    <form id="creditworthiness-calculator-form">
+      <p>Oblicz zdolność kredytową:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3">Dane wnioskodawcy:</td>
+          </tr>
+          <tr>
+            <td>Rok urodzenia najstarszego wnioskodawcy:</td>
+            <td><input name="yearOfBirth" type="number" /></td>
+            <td>rok</td>
+          </tr>
+          <tr>
+            <td>Dochód netto gospodarstwa domowego:</td>
+            <td><input name="netIncome" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Liczba osób w gospodarstwie domowym (dorośli + dzieci):</td>
+            <td><input name="numberOfPeople" type="number" /></td>
+            <td>lat</td>
+          </tr>
+          <tr>
+            <td colspan="3">Obciążenia finansowe:</td>
+          </tr>
+          <tr>
+            <td>Raty kredytów:</td>
+            <td><input name="creditRatesSum" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Limity kart kredytowych:</td>
+            <td><input name="creditCardsLimitsSum" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Alimenty:</td>
+            <td><input name="alimony" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Inne:</td>
+            <td><input name="otherCharges" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Oblicz ratę" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
