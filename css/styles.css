@@ -1,4 +1,8 @@
 td:first-of-type {
   text-align: right;
 }
+
+input[type="submit"] {
+  width: 100%;
+}
 /*# sourceMappingURL=styles.css.map */
