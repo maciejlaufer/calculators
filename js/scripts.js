@@ -1,5 +1,6 @@
 "use strict";
 
+// TODO: connect variable to CMS
 const INTEREST_RATE = 0.03;
 
 function formatMoneyValue(value) {

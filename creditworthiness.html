@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <form class="calculator" id="creditworthiness-calculator-form">
+      <p>Oblicz zdolność kredytową:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3">Dane wnioskodawcy:</td>
+          </tr>
+          <tr>
+            <td>Rok urodzenia najstarszego wnioskodawcy:</td>
+            <td><input name="yearOfBirth" type="number" /></td>
+            <td>rok</td>
+          </tr>
+          <tr>
+            <td>Dochód netto gospodarstwa domowego:</td>
+            <td><input name="netIncome" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Liczba osób w gospodarstwie domowym (dorośli + dzieci):</td>
+            <td><input name="numberOfPeople" type="number" /></td>
+            <td>lat</td>
+          </tr>
+          <tr>
+            <td colspan="3">Obciążenia finansowe:</td>
+          </tr>
+          <tr>
+            <td>Raty kredytów:</td>
+            <td><input name="creditRatesSum" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Limity kart kredytowych:</td>
+            <td><input name="creditCardsLimitsSum" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Alimenty:</td>
+            <td><input name="alimony" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Inne:</td>
+            <td><input name="otherCharges" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Oblicz ratę" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

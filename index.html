@@ -3,36 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>A Basic HTML5 Template</title>
-    <meta
-      name="description"
-      content="A simple HTML5 Template for new projects."
-    />
-    <meta name="author" content="SitePoint" />
-
-    <meta property="og:title" content="A Basic HTML5 Template" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://www.sitepoint.com/a-basic-html5-template/"
-    />
-    <meta
-      property="og:description"
-      content="A simple HTML5 Template for new projects."
-    />
-    <meta property="og:image" content="image.png" />
-
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
-    <form id="loan-calculator-form">
-      <p>Dane kredytu</p>
+    <form id="loan-calculator-form" class="calculator">
+      <h2>Dane kredytu</h2>
       <table>
         <tbody>
           <tr>
@@ -58,7 +34,7 @@
           </tr>
         </tbody>
       </table>
-      <p>Wyniki</p>
+      <h3>Wyniki</h3>
       <table>
         <tbody>
           <tr>
@@ -79,11 +55,8 @@
         </tbody>
       </table>
     </form>
-
-    <hr />
-
-    <form id="loan-comparison-calculator-form">
-      <p>Porównanie kredytów</p>
+    <form id="loan-comparison-calculator-form" class="calculator">
+      <h2>Porównanie kredytów</h2>
       <table>
         <tbody>
           <tr>
@@ -115,7 +88,7 @@
           </tr>
         </tbody>
       </table>
-      <p>Wyniki</p>
+      <h3>Wyniki</h3>
       <table>
         <tbody>
           <tr>
@@ -143,62 +116,6 @@
       </table>
     </form>
 
-    <hr />
-
-    <form id="creditworthiness-calculator-form">
-      <p>Oblicz zdolność kredytową:</p>
-      <table>
-        <tbody>
-          <tr>
-            <td colspan="3">Dane wnioskodawcy:</td>
-          </tr>
-          <tr>
-            <td>Rok urodzenia najstarszego wnioskodawcy:</td>
-            <td><input name="yearOfBirth" type="number" /></td>
-            <td>rok</td>
-          </tr>
-          <tr>
-            <td>Dochód netto gospodarstwa domowego:</td>
-            <td><input name="netIncome" type="number" /></td>
-            <td>zł</td>
-          </tr>
-          <tr>
-            <td>Liczba osób w gospodarstwie domowym (dorośli + dzieci):</td>
-            <td><input name="numberOfPeople" type="number" /></td>
-            <td>lat</td>
-          </tr>
-          <tr>
-            <td colspan="3">Obciążenia finansowe:</td>
-          </tr>
-          <tr>
-            <td>Raty kredytów:</td>
-            <td><input name="creditRatesSum" type="number" /></td>
-            <td>zł</td>
-          </tr>
-          <tr>
-            <td>Limity kart kredytowych:</td>
-            <td><input name="creditCardsLimitsSum" type="number" /></td>
-            <td>zł</td>
-          </tr>
-          <tr>
-            <td>Alimenty:</td>
-            <td><input name="alimony" type="number" /></td>
-            <td>zł</td>
-          </tr>
-          <tr>
-            <td>Inne:</td>
-            <td><input name="otherCharges" type="number" /></td>
-            <td>zł</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <input type="submit" value="Oblicz ratę" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
     <script src="js/scripts.js"></script>
   </body>
 </html>
