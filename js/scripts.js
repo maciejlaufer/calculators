@@ -3,6 +3,38 @@
 // TODO: connect variable to CMS
 const INTEREST_RATE = 0.03;
 
+function getMonthlyCostsByFamilyMembersNumber(numberOfFamilyMembers) {
+  if (!Number.isInteger(numberOfFamilyMembers) || numberOfFamilyMembers < 1) {
+    console.error("Wrong format of family members number");
+    return undefined;
+  }
+
+  switch (numberOfFamilyMembers) {
+    case 1:
+      return 600;
+    case 2:
+      return 1000;
+    case 3:
+      return 1550;
+    case 4:
+      return 1960;
+    case 5:
+      return 2520;
+    case 6:
+      return 3020;
+    case 7:
+      return 3520;
+    case 8:
+      return 4020;
+    case 9:
+      return 4520;
+    case 10:
+      return 5020;
+    default:
+      return 5020 + (numberOfFamilyMembers - 10) * 500;
+  }
+}
+
 function formatMoneyValue(value) {
   return value.toFixed(2).replace(/[.,]00$/, "");
 }
