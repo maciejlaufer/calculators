@@ -27,20 +27,30 @@
   }
 
   table {
+    width: auto;
+    margin-bottom: 16px;
     border-collapse: collapse;
+    border: none;
+
+    tr {
+      border: none;
+    }
   }
 
   td {
     padding: 5px;
     line-height: 1.5;
     width: 125px;
+    border: none;
 
     &:first-of-type {
       width: 250px;
+      text-align: left;
     }
 
     &:last-of-type {
       width: 50px;
+      text-align: left;
     }
   }
 

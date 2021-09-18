@@ -29,21 +29,31 @@
 }
 
 .calculator table {
+  width: auto;
+  margin-bottom: 16px;
   border-collapse: collapse;
+  border: none;
+}
+
+.calculator table tr {
+  border: none;
 }
 
 .calculator td {
   padding: 5px;
   line-height: 1.5;
   width: 125px;
+  border: none;
 }
 
 .calculator td:first-of-type {
   width: 250px;
+  text-align: left;
 }
 
 .calculator td:last-of-type {
   width: 50px;
+  text-align: left;
 }
 
 .calculator input {
