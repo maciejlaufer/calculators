@@ -8,12 +8,15 @@
   </head>
 
   <body>
-    <form class="calculator" id="creditworthiness-calculator-form">
-      <p>Oblicz zdolność kredytową:</p>
+    <form
+      class="calculator creditworthiness-calculator"
+      id="creditworthiness-calculator-form"
+    >
+      <h2>Oblicz zdolność kredytową:</h2>
       <table>
         <tbody>
           <tr>
-            <td colspan="3">Dane wnioskodawcy:</td>
+            <td colspan="3"><h3>Dane wnioskodawcy:</h3></td>
           </tr>
           <tr>
             <td>Rok urodzenia najstarszego wnioskodawcy:</td>
@@ -27,11 +30,11 @@
           </tr>
           <tr>
             <td>Liczba osób w gospodarstwie domowym (dorośli + dzieci):</td>
-            <td><input name="numberOfPeople" type="number" /></td>
-            <td>lat</td>
+            <td><input name="numberOfFamilyMembers" type="number" /></td>
+            <td>os.</td>
           </tr>
           <tr>
-            <td colspan="3">Obciążenia finansowe:</td>
+            <td colspan="3"><h3>Obciążenia finansowe:</h3></td>
           </tr>
           <tr>
             <td>Raty kredytów:</td>
@@ -56,8 +59,25 @@
           <tr>
             <td></td>
             <td>
-              <input type="submit" value="Oblicz ratę" />
+              <input type="submit" value="Oblicz zdolność" />
             </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Wyniki</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td>Twoja zdolność kredytowa</td>
+            <td><input readonly id="minCreditworthiness" type="number" /></td>
+            <td style="width: 50px">-</td>
+            <td><input readonly id="maxCreditworthiness" type="number" /></td>
+            <td>zł</td>
+          </tr>
+          <tr>
+            <td>Maksymalny okres kredytowania</td>
+            <td><input readonly id="maxCreditDuration" type="number" /></td>
+            <td>lat</td>
           </tr>
         </tbody>
       </table>

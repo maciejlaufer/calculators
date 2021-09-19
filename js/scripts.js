@@ -1,12 +1,13 @@
 "use strict";
 
-// TODO: connect variable to CMS
-const INTEREST_RATE = 0.03;
+// TODO: connect constants to CMS
+const INTEREST_RATE = 0.025;
+const RISK_INDICATOR = 0.56;
+const CREDITWORTHINESS_DEVIATION = 0.1;
 
 function getMonthlyCostsByFamilyMembersNumber(numberOfFamilyMembers) {
   if (!Number.isInteger(numberOfFamilyMembers) || numberOfFamilyMembers < 1) {
-    console.error("Wrong format of family members number");
-    return undefined;
+    return 0;
   }
 
   switch (numberOfFamilyMembers) {
@@ -35,8 +36,8 @@ function getMonthlyCostsByFamilyMembersNumber(numberOfFamilyMembers) {
   }
 }
 
-function formatMoneyValue(value) {
-  return value.toFixed(2).replace(/[.,]00$/, "");
+function formatMoneyValue(value, numberOfDecimalPlaces = 2) {
+  return value.toFixed(numberOfDecimalPlaces).replace(/[.,]00$/, "");
 }
 
 function calculateLoanAmount(investmentValue, contribution) {
@@ -51,6 +52,14 @@ function calculateMonthlyRate(loanAmount, numberOfRates, interestRate) {
   return (
     (loanAmount * (interestRate / 12)) /
     (1 - (1 + interestRate / 12) ** -numberOfRates)
+  );
+}
+
+function calculateCapitalRatio(creditDurationInYears) {
+  const numberOfRates = creditDurationInYears * 12;
+  return (
+    100000 /
+    (calculateMonthlyRate(100000, numberOfRates, INTEREST_RATE) * numberOfRates)
   );
 }
 
@@ -118,8 +127,8 @@ function creditworthinessCalculatorFormSubmitCallback(event) {
 
   const yearOfBirthValue = parseInt(event.target.yearOfBirth.value || 0);
   const netIncomeValue = parseFloat(event.target.netIncome.value || 0);
-  const numberOfPeopleValue = parseFloat(
-    event.target.numberOfPeople.value || 0
+  const numberOfFamilyMembersValue = parseFloat(
+    event.target.numberOfFamilyMembers.value || 0
   );
 
   const creditRatesSumValue = parseFloat(
@@ -131,38 +140,65 @@ function creditworthinessCalculatorFormSubmitCallback(event) {
   const alimonyValue = parseFloat(event.target.alimony.value || 0);
   const otherChargesValue = parseFloat(event.target.otherCharges.value || 0);
 
-  console.log(
-    "event",
-    yearOfBirthValue,
-    netIncomeValue,
-    numberOfPeopleValue,
-    creditRatesSumValue,
-    creditCardsLimitsSumValue,
-    alimonyValue,
-    otherChargesValue
+  const age = new Date().getFullYear() - yearOfBirthValue;
+  const income =
+    (netIncomeValue -
+      getMonthlyCostsByFamilyMembersNumber(numberOfFamilyMembersValue) -
+      creditRatesSumValue -
+      creditCardsLimitsSumValue -
+      alimonyValue -
+      otherChargesValue) *
+    RISK_INDICATOR;
+
+  const maxCreditDurationForCalculation = 65 - age > 25 ? 25 : 65 - age;
+  const capitalRatio = calculateCapitalRatio(maxCreditDurationForCalculation);
+
+  const creditWorthiness =
+    income * 12 * maxCreditDurationForCalculation * capitalRatio;
+
+  const minCreditworthinessInput = document.getElementById(
+    "minCreditworthiness"
   );
+  minCreditworthinessInput.value = formatMoneyValue(
+    creditWorthiness * (1 - CREDITWORTHINESS_DEVIATION),
+    0
+  );
+
+  const maxCreditworthinessInput = document.getElementById(
+    "maxCreditworthiness"
+  );
+  maxCreditworthinessInput.value = formatMoneyValue(
+    creditWorthiness * (1 + CREDITWORTHINESS_DEVIATION),
+    0
+  );
+
+  const maxCreditDurationInput = document.getElementById("maxCreditDuration");
+  maxCreditDurationInput.value = 65 - age;
 }
 
 window.onload = function () {
   const loanCalculatorForm = document.getElementById("loan-calculator-form");
-  loanCalculatorForm.addEventListener(
-    "submit",
-    loanCalculatorFormSubmitCallback
-  );
+  if (loanCalculatorForm)
+    loanCalculatorForm.addEventListener(
+      "submit",
+      loanCalculatorFormSubmitCallback
+    );
 
   const loanComparisonCalculatorForm = document.getElementById(
     "loan-comparison-calculator-form"
   );
-  loanComparisonCalculatorForm.addEventListener(
-    "submit",
-    loanComparisonCalculatorFormSubmitCallback
-  );
+  if (loanComparisonCalculatorForm)
+    loanComparisonCalculatorForm.addEventListener(
+      "submit",
+      loanComparisonCalculatorFormSubmitCallback
+    );
 
   const creditworthinessForm = document.getElementById(
     "creditworthiness-calculator-form"
   );
-  creditworthinessForm.addEventListener(
-    "submit",
-    creditworthinessCalculatorFormSubmitCallback
-  );
+  if (creditworthinessForm)
+    creditworthinessForm.addEventListener(
+      "submit",
+      creditworthinessCalculatorFormSubmitCallback
+    );
 };

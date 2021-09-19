@@ -84,4 +84,12 @@
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
           box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.calculator.creditworthiness-calculator h3 {
+  margin: 16px 0;
+}
+
+.calculator.creditworthiness-calculator td:first-of-type {
+  width: 440px;
+}
 /*# sourceMappingURL=styles.css.map */
