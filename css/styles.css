@@ -44,11 +44,12 @@
   line-height: 1.5;
   width: 125px;
   border: none;
+  text-align: center;
 }
 
 .calculator td:first-of-type {
-  width: 250px;
-  text-align: left;
+  width: 200px;
+  text-align: right;
 }
 
 .calculator td:last-of-type {
