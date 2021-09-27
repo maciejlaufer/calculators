@@ -37,7 +37,12 @@ function getMonthlyCostsByFamilyMembersNumber(numberOfFamilyMembers) {
 }
 
 function formatMoneyValue(value, numberOfDecimalPlaces = 2) {
-  return value.toFixed(numberOfDecimalPlaces).replace(/[.,]00$/, "");
+  return (
+    (parseFloat(value.toFixed(numberOfDecimalPlaces)) || 0)
+      .toLocaleString("en")
+      .replaceAll(",", " ")
+      .replaceAll(".", ",") || 0
+  );
 }
 
 function calculateLoanAmount(investmentValue, contribution) {
