@@ -59,6 +59,7 @@
 
 .calculator input {
   width: 100%;
+  min-width: 100px;
   height: 100%;
   padding: 10px 8px;
   border: 1px solid #e4e4e4;
@@ -91,5 +92,38 @@
 
 .calculator.creditworthiness-calculator td:first-of-type {
   width: 440px;
+}
+
+@media screen and (max-width: 481px) {
+  #loan-comparison-calculator-form {
+    display: none;
+  }
+  #creditworthiness-calculator-form table {
+    display: block;
+    width: 100%;
+  }
+  #creditworthiness-calculator-form table tbody {
+    display: block;
+    width: 100%;
+  }
+  #creditworthiness-calculator-form table tbody tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  #creditworthiness-calculator-form td {
+    text-align: left;
+    display: inline-block;
+  }
+  #creditworthiness-calculator-form td:nth-of-type(2) {
+    width: 130px;
+  }
+  #creditworthiness-calculator-form td.range-result-cell {
+    width: 120px;
+  }
+  #creditworthiness-calculator-form td:first-of-type {
+    display: block;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
